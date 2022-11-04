@@ -1,0 +1,342 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+@media screen and (min-width: 700px){
+    .bodyPrivate{
+        background-image: linear-gradient(50deg, #1A20A7,#8E6ADB,#03E0EE);
+        width: 100%;
+        height: 627px;
+    }
+    .containerPrivate{
+        position:absolute;
+        margin: 20px 0 0 25%;
+        width: 50%;
+        height: 400px; 
+    }
+    .formPrivate{
+        text-align: center;
+        position: relative;
+        margin: auto;
+        width: 100%;
+        height: 100px; 
+    }
+    .form-groupPrivate{
+        background-color: rgba(255, 255, 255);
+        box-shadow: -10px 10px 4px rgba(0, 0, 0, 0.273);
+        border: 1px solid black;
+        border-radius: 7px;
+        position: relative;
+        display: block;
+        margin: auto;
+        width: 100%;
+        height: 500px;
+    }
+    .groupPrivate{
+        position: relative;
+        display: block;
+        margin: auto;
+        width: 97%;
+        height: 380px;
+    }
+    .postsPrivate{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        overflow-y: scroll;
+        border: 1px solid black;
+        border-radius: 4px;
+        position: relative;
+        margin: 15px auto;
+        width: 99%;
+        height: 320px;
+    }
+    .post-internosPrivate{
+        position: relative;
+        margin: 9px auto;
+        width: 95%;
+        height: 220px;
+    }
+    .postPrivate{
+        width: 100%;
+        display: flex;
+        border-radius: 2px;
+        margin-bottom: 2px;
+        position: relative;
+        margin: 0 0 10px 0;
+    }
+    .postPrivate:hover{
+        background-color: rgb(183, 248, 251);
+    }
+    .bolinhaPrivate{
+        background-color: #555555;
+        position: relative;
+        margin: 0 0 0 0;
+        width: 20px;
+        height: 20px;
+    }
+    .postPrivate h4{
+        text-align: left;
+        position: relative;
+        font-size: 17px;
+        margin: 0 0 0 5px;
+    } 
+    .postPrivate p{
+        text-align: left;
+        position: relative;
+        height: 20px;
+        margin: 0 0 0 5px;
+    }
+    .textarea-formPrivate{
+        text-align: center;
+        border-radius: 4px;
+        background-color: #ffffff;
+        border: 1px solid black;
+        font-size: 17px;
+        color: black;
+        width: 98%;
+        height: 105px;
+        margin: 5px 0 0 5px;
+        display: flex;
+    }
+    .form-groupPrivate textarea{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border: 0;
+        font-size: 17px;
+        color: black;
+        width: 98%;
+        height: 64px;
+        margin: 5px 0 0 10px;
+    }
+    textarea:focus{
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }
+    .form-groupPrivate button{
+        border-radius: 4px;
+        border: 1px solid black;
+        background-color: #c0f8ff;
+        transition: 0.5s;
+        font-size: 14px;
+        cursor: pointer;
+        margin: 8px 0 0 73%;
+        width: 24%;
+        height: 20px;
+    }
+    .form-groupPrivate button:hover{
+        background-color: #1ae8ec;
+        color: white;
+    }
+    .form-inferiorPrivate{
+        position: relative;
+        margin: 425px auto;
+        display: flex;
+        width: 100%;
+        height: 60px;
+    }
+    .user-namePrivate{
+        background-color: white;
+        border: 1px solid black;
+        position: relative;
+        width: 83%;
+        height: 60px;
+        border-radius: 4px;
+        box-shadow: -10px 10px 4px rgba(0, 0, 0, 0.273);
+    }
+    .form-inferiorPrivate h3{
+        position: relative;
+        transition: 0.5s;
+        font-size: 20px;
+        cursor: pointer;
+        margin: 3% 0 0 48%;
+        width: 28%;
+        height: 25px;
+    }
+    .form-inferiorPrivate button{
+        background-color: rgb(248, 84, 84);
+        color: white;
+        position: relative;
+        border-radius: 4px;
+        border: 1px solid black;
+        box-shadow: -10px 10px 4px rgba(0, 0, 0, 0.273);
+        transition: 0.5s;
+        font-size: 20px;
+        cursor: pointer;
+        margin: 0 0 0 2%;
+        width: 15%;
+        height: 60px;
+    }
+    .form-inferiorPrivate button:hover{
+        background-color: #ea2525;
+    }
+}
+
+
+
+
+@media screen and (min-width: 1350px){
+    .bodyPrivate{
+        background-image: linear-gradient(50deg, #1A20A7,#8E6ADB,#03E0EE);
+        width: 100%;
+        height: 939px;
+    }
+    .containerPrivate{
+        position:absolute;
+        margin: 40px 0 0 25%;
+        width: 50%;
+        height: 400px; 
+    }
+    .formPrivate{
+        text-align: center;
+        position: relative;
+        margin: auto;
+        width: 100%;
+        height: 100px; 
+    }
+    .form-groupPrivate{
+        background-color: rgba(255, 255, 255);
+        box-shadow: -10px 10px 4px rgba(0, 0, 0, 0.273);
+        border: 1px solid black;
+        border-radius: 7px;
+        position: relative;
+        display: block;
+        margin: auto;
+        width: 100%;
+        height: 700px;
+    }
+    .groupPrivate{
+        position: relative;
+        display: block;
+        margin: auto;
+        width: 97%;
+        height: 380px;
+    }
+    .postsPrivate{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        overflow-y: scroll;
+        border: 1px solid black;
+        border-radius: 4px;
+        position: relative;
+        margin: 15px auto;
+        width: 99%;
+        height: 520px;
+    }
+    .post-internosPrivate{
+        position: relative;
+        margin: 9px auto;
+        width: 95%;
+        height: 220px;
+    }
+    .postPrivate{
+        width: 100%;
+        display: flex;
+        border-radius: 2px;
+        margin-bottom: 2px;
+        position: relative;
+        margin: 0 0 10px 0;
+    }
+    .postPrivate:hover{
+        background-color: rgb(183, 248, 251);
+    }
+    .bolinhaPrivate{
+        background-color: #555555;
+        position: relative;
+        margin: 0 0 0 0;
+        width: 20px;
+        height: 20px;
+    }
+    .postPrivate h4{
+        text-align: left;
+        position: relative;
+        font-size: 17px;
+        margin: 0 0 0 5px;
+    } 
+    .postPrivate p{
+        text-align: left;
+        position: relative;
+        height: 20px;
+        margin: 0 0 0 5px;
+    }
+    .textarea-formPrivate{
+        text-align: center;
+        border-radius: 4px;
+        background-color: #ffffff;
+        border: 1px solid black;
+        font-size: 17px;
+        color: black;
+        width: 98%;
+        height: 105px;
+        margin: 5px 0 0 5px;
+        display: flex;
+    }
+    .form-groupPrivate textarea{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border: 0;
+        font-size: 17px;
+        color: black;
+        width: 98%;
+        height: 64px;
+        margin: 5px 0 0 10px;
+    }
+    textarea:focus{
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }
+    .form-groupPrivate button{
+        border-radius: 4px;
+        border: 1px solid black;
+        background-color: #c0f8ff;
+        transition: 0.5s;
+        font-size: 14px;
+        cursor: pointer;
+        margin: 8px 0 0 73%;
+        width: 24%;
+        height: 20px;
+    }
+    .form-groupPrivate button:hover{
+        background-color: #1ae8ec;
+        color: white;
+    }
+    .form-inferiorPrivate{
+        position: relative;
+        margin: 625px auto;
+        display: flex;
+        width: 100%;
+        height: 60px;
+    }
+    .user-namePrivate{
+        background-color: white;
+        border: 1px solid black;
+        position: relative;
+        width: 83%;
+        height: 60px;
+        border-radius: 4px;
+        box-shadow: -10px 10px 4px rgba(0, 0, 0, 0.273);
+    }
+    .form-inferiorPrivate h3{
+        position: relative;
+        transition: 0.5s;
+        font-size: 20px;
+        cursor: pointer;
+        margin: 3% 0 0 48%;
+        width: 28%;
+        height: 25px;
+    }
+    .form-inferiorPrivate button{
+        background-color: rgb(248, 84, 84);
+        color: white;
+        position: relative;
+        border-radius: 4px;
+        border: 1px solid black;
+        box-shadow: -10px 10px 4px rgba(0, 0, 0, 0.273);
+        transition: 0.5s;
+        font-size: 20px;
+        cursor: pointer;
+        margin: 0 0 0 2%;
+        width: 15%;
+        height: 60px;
+    }
+    .form-inferiorPrivate button:hover{
+        background-color: #ea2525;
+    }
+}
