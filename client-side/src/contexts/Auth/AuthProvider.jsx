@@ -1,10 +1,28 @@
 import axios from "axios";
+import { useEffect } from "react";
 import { useState } from "react"
 import { AuthContext } from "./AuthContext"
 
 export const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const validateToken = async () => {
+            const storageData = localStorage.getItem('authToken');
+            if(storageData){
+                await axios.post("http://localhost:3000/owner", {
+                    id: storageData,
+                    }).then((response)=> {
+                        const usuario = response.data[0].user;
+                        if(usuario.length > 0){
+                            setUser(usuario);
+                        };
+                    });
+            };
+        };
+        validateToken();
+    }, []);
 
     const signin = async (email, password) => {
         let confere = false;
@@ -47,8 +65,24 @@ export const AuthProvider = ({children}) => {
         localStorage.setItem('authToken', token);
     }
 
+    const register = async (user,email,password) => {
+        await axios.post("http://localhost:3000/register", {
+        user: user,
+        email: email,
+        password: password,
+        }).then((response)=> {
+            alert(response.data.msg);
+        }).catch(function (error) {
+        if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        };
+        });
+    }
+
     return (
-        <AuthContext.Provider value={{user, signin, signout}}>
+        <AuthContext.Provider value={{user, signin, signout, register}}>
             {children}
         </AuthContext.Provider>
     )

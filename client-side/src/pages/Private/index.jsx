@@ -4,6 +4,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
+import { AiOutlineSend, AiOutlineSetting } from "react-icons/ai";
 
 export const Private = () => {
 
@@ -38,9 +39,9 @@ export const Private = () => {
         owner: idUse,
         text: post,
       });
-      clearInputs();
       getPost();
-    };
+      clearInputs();
+    }; 
   };
 
   const handleExit = () => {
@@ -62,13 +63,14 @@ export const Private = () => {
                   <div className="textarea-formPrivate">
                     <textarea id='textArea' cols="30" rows="5"></textarea>
                   </div>
-                  <button onClick={handleClickPost}>Postar</button>
+                  <button onClick={handleClickPost}><AiOutlineSend className='seta'/></button>
                 </div>
               </div> 
           </div>
           <div className="form-inferiorPrivate">
             <div className="user-namePrivate">
-            <h3>{user}</h3>  
+              <h3>{user}</h3>
+              <AiOutlineSetting className='conf' />
             </div>
             <button onClick={handleExit}  className="btn-exitPrivate">exit</button>
           </div>                

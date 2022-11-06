@@ -1,8 +1,8 @@
 import './Register.css';
 import React from 'react';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
+import { AuthContext } from "../../contexts/Auth/AuthContext";
 
 export const Register = () => {
 
@@ -12,30 +12,19 @@ export const Register = () => {
   const [password,setPassword]=useState(null);
   const [passwordConfirm,setPasswordConfirm]=useState(null);
   const navigate = useNavigate();
-  
+  const auth = useContext(AuthContext);
+
   //enviando infos usuarios
-  const handleRegister = () => {
+  const handleRegister = async () => {
     if(user && email && password && passwordConfirm){
       if(password == passwordConfirm && password.length >= 5){
-        axios.post("http://localhost:3000/register", {
-          user: user,
-          email: email,
-          password: password,
-        }).then((response)=> {
-            alert(response.data.msg);
-        }).catch(function (error) {
-          if (error.response) {
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          };
-        });
+        await auth.register(user,email, password);
       }else{
-        alert('Senhas diferentes ou tamanho menor que 5!');
+          alert('Senhas diferentes ou tamanho menor que 5!');
       };
-    }else{
+      }else{
       alert('Campos vazios!');
-    };
+      };
   };
 
   function login(){
