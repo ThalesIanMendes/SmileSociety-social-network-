@@ -40,5 +40,12 @@ about bcrypt: https://www.npmjs.com/package/bcrypt
 - ✔️ Figma.
 - ✔️ Vite.
 - ✔️ bcrypt.
+- ✔️ cors.
+- ✔️ express.
+- ✔️ mysql.
+- ✔️ dotenv.
+- ✔️ nodemon.
+- ✔️ axios.
+- 
 <3 
 ## 😃 Gostou? me siga no -> [Likedln](https://www.linkedin.com/in/thales-ian-carlesso-975014214/)
