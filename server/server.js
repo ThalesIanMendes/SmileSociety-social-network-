@@ -4,7 +4,6 @@ const server = express();
 const mysql = require('mysql');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
-const { default: NoWorkResult } = require('postcss/lib/no-work-result');
 const saltRounds = 10;
 server.use(express.json());
 server.use(cors());
@@ -18,6 +17,7 @@ const db = mysql.createConnection({
 });
 
 server.post('/register', (req,res) => {
+    const token = req.body.token;
     const user = req.body.user;
     const email = req.body.email;
     const password = req.body.password;
@@ -26,7 +26,7 @@ server.post('/register', (req,res) => {
             res.send(err);
         }if(result.length == 0){
             bcrypt.hash(password, saltRounds, (erro, hash) => {
-                db.query("INSERT INTO users (user, email, password) VALUES (?, ?, ?)", [user, email, hash], (err, response) => {
+                db.query("INSERT INTO users (token, user, email, password) VALUES (?, ?, ?, ?)", [token, user, email, hash], (err, response) => {
                     if(err){
                         res.send(err);
                     }
@@ -42,21 +42,20 @@ server.post('/register', (req,res) => {
 server.post("/login", (req,res) => {
     const email = req.body.email;
     const password = req.body.password;
-    
     db.query("SELECT * FROM users WHERE email = ?", [email], (err, result) => {
         if(err){
             res.send(err)
         }
         if(result.length > 0){
             const usuario = result[0].user;
-            const token = result[0].id;
+            const token = result[0].token;
+            const id = result[0].id;
             bcrypt.compare(password, result[0].password, (erro, result) =>{
                 if(erro){
                     res.send(erro);
                 }
                 if(result){
-                    
-                    res.send({msg: "Usuario logado com sucesso!", user:usuario, token:token});
+                    res.send({msg: "Usuario logado com sucesso!", user:usuario, token:token, id:id});
                 }else{
                     res.send({msg:'Senha invalida!'})
                 }
@@ -66,10 +65,6 @@ server.post("/login", (req,res) => {
         }
     });
 });
-
-
-
-
 
 server.post("/post", (req,res) => {
     const owner = req.body.owner;
@@ -83,6 +78,19 @@ server.post("/post", (req,res) => {
     });
 });
 
+server.post("/token", (req,res) => {
+    const token = req.body.token;
+    db.query("SELECT * FROM users WHERE token = ?",[token], (erro, resultado) => {
+        res.send(resultado)
+    })
+})
+
+server.get("/wId", (req,res) => {
+    db.query("SELECT id FROM users", async(err,result) => { 
+        res.send({msg:result[result.length-1].id})
+    }) 
+})
+
 server.post("/owner", (req,res) => {
     const id = req.body.id;
     db.query("SELECT user FROM users WHERE id = ?",[id], (erro, result) => {
@@ -91,7 +99,7 @@ server.post("/owner", (req,res) => {
 });
 
 server.get("/postagens", (req,res) => {
-    db.query("SELECT owner, text FROM posts", (err,result) => {   
+    db.query("SELECT id, owner, text FROM posts", (err,result) => {   
         res.send(result);
     }) 
 });

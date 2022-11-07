@@ -11,7 +11,7 @@ export const Private = () => {
   const navigate = useNavigate();
   const auth = useContext(AuthContext);
   const user = auth.user;
-  const idUse = localStorage.getItem('authToken');
+  const idUse = auth.id;
   
   function clearInputs(){
     document.getElementById('textArea').value = '';

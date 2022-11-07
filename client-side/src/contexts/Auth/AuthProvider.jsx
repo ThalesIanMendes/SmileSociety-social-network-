@@ -1,26 +1,34 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { useState } from "react"
-import { AuthContext } from "./AuthContext"
+import { useState } from "react";
+import { AuthContext } from "./AuthContext";
+
 
 export const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null);
+    const [id, setId] = useState(null);
 
     useEffect(() => {
         const validateToken = async () => {
             const storageData = localStorage.getItem('authToken');
             if(storageData){
-                await axios.post("http://localhost:3000/owner", {
-                    id: storageData,
-                    }).then((response)=> {
-                        const usuario = response.data[0].user;
-                        if(usuario.length > 0){
-                            setUser(usuario);
-                        };
-                    });
+                await axios.post("http://localhost:3000/token", {
+                    token: storageData,
+                }).then( async (response)=> {
+                    const usuario = await response.data[0].user;
+                    const id = await response.data[0].id;
+                    if(usuario.length > 0){
+                        setUser(usuario);
+                        setId(id)
+                    };
+                });
             };
         };
+        const eadm = () => {
+            
+        }
+        eadm();
         validateToken();
     }, []);
 
@@ -33,6 +41,7 @@ export const AuthProvider = ({children}) => {
             if(response.data.msg.length > 25){
                 alert(response.data.msg);
                 setUser(response.data.user);
+                setId(response.data.id)
                 setToken(response.data.token);
                 confere = true;
             }else{
@@ -55,10 +64,10 @@ export const AuthProvider = ({children}) => {
         };
     };
 
-    const signout = async () => {
+    const signout = () => {
         setUser(null);
+        setId(null);
         setToken('');
-        //await api.logout();
     }
 
     const setToken = (token) => {
@@ -66,23 +75,27 @@ export const AuthProvider = ({children}) => {
     }
 
     const register = async (user,email,password) => {
+        const ids =  await axios.get("http://localhost:3000/wId");   
+        const ultimoId = Number(ids.data.msg)+1;
+        const token = (ultimoId * 5250) * 18;
         await axios.post("http://localhost:3000/register", {
-        user: user,
-        email: email,
-        password: password,
+            token: token,
+            user: user,
+            email: email,
+            password: password,
         }).then((response)=> {
             alert(response.data.msg);
         }).catch(function (error) {
-        if (error.response) {
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-        };
+            if (error.response) {
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            };
         });
-    }
+    };
 
     return (
-        <AuthContext.Provider value={{user, signin, signout, register}}>
+        <AuthContext.Provider value={{user, id, signin, signout, register}}>
             {children}
         </AuthContext.Provider>
     )
