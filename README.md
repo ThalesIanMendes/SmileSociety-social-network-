@@ -9,10 +9,6 @@ In the future I intend to put it in the cloud so that anyone in the world can in
 --> Preview
 [![privatePage](https://user-images.githubusercontent.com/97729476/200048172-d1335893-9b88-4496-bcf9-8e7d9f05a950.png)](url)
 
-![telaLogin](https://user-images.githubusercontent.com/97729476/200048255-1e253e5c-01de-406f-8901-d6d07dbf056d.png)
-
-![telaRegister](https://user-images.githubusercontent.com/97729476/200048333-81d3ddd5-9440-4c7a-93c1-81e0ccdba1ab.png)
-
 
 ### in the folder backend use: npm run dev
 
